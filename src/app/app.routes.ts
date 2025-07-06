@@ -58,7 +58,9 @@ export const routes: Routes = [
        },
       { path: 'ediciones/:id', component: Insertareditarpremio,
         canActivate: [seguridadGuard],
-    data: { roles: ['DESARROLLADOR','ADMIN'] }
+    data: { roles: ['DESARROLLADOR','ADMIN'],
+        renderMode: 'server'
+      }
       }
     ]
   },
@@ -69,7 +71,7 @@ export const routes: Routes = [
     component: ArticuloComponent, // ✅ Pública
     children: [
       { path: 'nuevo', component: Insertareditararticulo, canActivate: [seguridadGuard] },
-      { path: 'ediciones/:id', component: Insertareditararticulo, canActivate: [seguridadGuard] },
+      { path: 'ediciones/:id', component: Insertareditararticulo, canActivate: [seguridadGuard], data: { renderMode: 'server' } },
       { path: 'busquedas', component: Buscar }, // ✅ Pública
       { path: 'articuloporautor', component: BuscarporautorComponent, canActivate: [seguridadGuard] } // Pública
     ]
@@ -81,7 +83,7 @@ export const routes: Routes = [
     component: Usuario,
     children: [
       { path: 'nuevo', component: Insertareditarusuario },
-      { path: 'ediciones/:id', component: Insertareditarusuario },
+      { path: 'ediciones/:id', component: Insertareditarusuario, data: { renderMode: 'server' } },
       { path: 'listarsinpassword', component: Listausariossinpassword }
     ],
     //canActivate: [seguridadGuard],
@@ -94,10 +96,10 @@ export const routes: Routes = [
     component: Rol,
     children: [
       { path: 'nuevo', component: Insertareditarrol},
-      { path: 'ediciones/:id', component: Insertareditarrol}
+      { path: 'ediciones/:id', component: Insertareditarrol , data: { renderMode: 'server' }}
     ],
     canActivate: [seguridadGuard],
-    data: { roles: ['DESARROLLADOR','ADMIN'] },
+    data: { roles: ['DESARROLLADOR','ADMIN']},
   },
 
   // === USUARIO PREMIO ===
@@ -113,7 +115,9 @@ export const routes: Routes = [
          },
       { path: 'ediciones/:id', component: Insertareditarusuariopremio,
          canActivate: [seguridadGuard],
-    data: { roles: ['DESARROLLADOR','ADMIN'] }
+    data: { roles: ['DESARROLLADOR','ADMIN'],
+      renderMode: 'server'
+     }
        },
     ]
   },
@@ -125,7 +129,7 @@ export const routes: Routes = [
     canActivate: [seguridadGuard],
     children: [
       { path: 'nuevo', component: Insertareditarcomentarioarticulo },
-      { path: 'ediciones/:id', component: Insertareditarcomentarioarticulo }
+      { path: 'ediciones/:id', component: Insertareditarcomentarioarticulo, data: { renderMode: 'server' }}
     ]
   },
 
@@ -142,7 +146,7 @@ export const routes: Routes = [
       },
       { path: 'ediciones/:id', component: Insertareditar,
          canActivate: [seguridadGuard],
-    data: { roles: ['DESARROLLADOR','ADMIN'] },
+    data: { roles: ['DESARROLLADOR','ADMIN'] ,renderMode: 'server' },
        }
     ]
   },
@@ -160,11 +164,11 @@ export const routes: Routes = [
        },
       { path: 'ediciones/:id', component: Insertareditarasesoria,
         canActivate: [seguridadGuard],
-    data: { roles: ['DESARROLLADOR','ADMIN'] },
+    data: { roles: ['DESARROLLADOR','ADMIN'] ,renderMode: 'server'},
        },
       { path: 'chat/:id/:nombreAsesoria', component: ChatAsesoria,
         canActivate: [seguridadGuard],
-    data: { roles: ['DESARROLLADOR','ADMIN','ESTUDIANTESUPERIOR','ESTUDIANTEINFERIOR'] },
+    data: { roles: ['DESARROLLADOR','ADMIN','ESTUDIANTESUPERIOR','ESTUDIANTEINFERIOR'] ,renderMode: 'server'},
        }
     ]
   },
@@ -182,7 +186,7 @@ export const routes: Routes = [
        },
       { path: 'ediciones/:id', component: Insertareditarvaloracion,
          canActivate: [seguridadGuard],
-    data: { roles: ['DESARROLLADOR','ADMIN'] },
+    data: { roles: ['DESARROLLADOR','ADMIN'] ,renderMode: 'server'},
       }
     ]
   },
@@ -200,7 +204,7 @@ export const routes: Routes = [
        },
       { path: 'ediciones/:id', component: Insertareditarmensaje,
          canActivate: [seguridadGuard],
-    data: { roles: ['DESARROLLADOR','ADMIN'] },
+    data: { roles: ['DESARROLLADOR','ADMIN'] ,renderMode: 'server'},
        }
     ]
   },
@@ -218,7 +222,7 @@ export const routes: Routes = [
        },
       { path: 'ediciones/:id', component: Insertareditarnotificacion,
         canActivate: [seguridadGuard],
-    data: { roles: ['DESARROLLADOR','ADMIN'] },
+    data: { roles: ['DESARROLLADOR','ADMIN'] ,renderMode: 'server'},
        }
     ]
   },
@@ -239,7 +243,7 @@ export const routes: Routes = [
       },
       { path: 'ediciones/:id', component: Insertareditardisponibilidad,
         canActivate: [seguridadGuard],
-    data: { roles: ['DESARROLLADOR','ADMIN','ESTUDIANTESUPERIOR'] },
+    data: { roles: ['DESARROLLADOR','ADMIN','ESTUDIANTESUPERIOR'] ,renderMode: 'server'},
        }
     ]
   },
@@ -257,7 +261,7 @@ export const routes: Routes = [
        },
       { path: 'ediciones/:id', component: Insertareditararchivo,
         canActivate: [seguridadGuard],
-    data: { roles: ['DESARROLLADOR','ADMIN'] },
+    data: { roles: ['DESARROLLADOR','ADMIN'] ,renderMode: 'server'},
        }
     ]
   },
