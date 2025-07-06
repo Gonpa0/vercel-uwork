@@ -1,5 +1,5 @@
 export const environment={
-  production:false,
+  production:true,
   base:"http://localhost:8801"
 }
 //ENLACE CON EL BACKEND PONER LA RUTA Y
