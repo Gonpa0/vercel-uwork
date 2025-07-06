@@ -1,0 +1,90 @@
+/* ===== CONTENEDOR GENERAL ===== */
+.container {
+  padding: 40px 20px;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f5f7fb;
+  min-height: 100vh;
+}
+
+/* ===== TÍTULO ===== */
+.container h1 {
+  font-size: 2.3rem;
+  font-weight: 700;
+  color: #1f2c5c;
+  margin-bottom: 20px;
+}
+
+/* ===== FORMULARIO DE BÚSQUEDA ===== */
+mat-form-field {
+  width: 40%;
+  font-family: 'Poppins', sans-serif;
+  margin: 0 auto 2rem;
+  display: block;
+}
+
+/* ===== TABLA ===== */
+.custom-table {
+  width: 94%;
+  margin: 0 auto;
+  background-color: #ffffff;
+  border: 1px solid #dee2e6;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.custom-table:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+.mat-header-row {
+  background-color: #253da1;
+  color: #ffffff;
+}
+
+.mat-header-cell {
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 16px;
+  text-align: center;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mat-row {
+  background-color: #fefefe;
+  transition: background-color 0.3s ease;
+}
+
+.mat-row:hover {
+  background-color: #eef2ff;
+}
+
+.mat-cell {
+  padding: 14px;
+  font-size: 0.95rem;
+  text-align: center;
+  color: #333;
+  border-right: 1px solid #f0f0f0;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 768px) {
+  mat-form-field {
+    width: 90%;
+  }
+
+  .container h1 {
+    font-size: 1.7rem;
+  }
+
+  .custom-table {
+    width: 100%;
+  }
+
+  .mat-header-cell,
+  .mat-cell {
+    font-size: 0.85rem;
+    padding: 12px 6px;
+  }
+}

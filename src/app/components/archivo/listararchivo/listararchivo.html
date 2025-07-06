@@ -1,0 +1,71 @@
+<div class="container">
+  <div style="text-align: center; margin:5%">
+    <h1>📁 Lista de Archivos</h1>
+  </div>
+  <div style="text-align: center; margin:5%">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 custom-table">
+      <!-- Position Column -->
+      <ng-container matColumnDef="c1">
+        <th mat-header-cell *matHeaderCellDef>🆔 ID</th>
+        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+      </ng-container>
+
+      <!-- Name Column -->
+      <ng-container matColumnDef="c2">
+        <th mat-header-cell *matHeaderCellDef>📄 Nombre</th>
+        <td mat-cell *matCellDef="let element">{{ element.nombreArchivo }}</td>
+      </ng-container>
+
+      <!-- Weight Column -->
+      <ng-container matColumnDef="c3">
+        <th mat-header-cell *matHeaderCellDef>📅 Fecha</th>
+        <td mat-cell *matCellDef="let element">{{ element.fechaSubida }}</td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="c4">
+        <th mat-header-cell *matHeaderCellDef>👤 Estudiante</th>
+        <td mat-cell *matCellDef="let element">{{ element.usuario.username }}</td>
+      </ng-container>
+
+      <!-- Symbol Column -->
+      <ng-container matColumnDef="c5">
+        <th mat-header-cell *matHeaderCellDef>📘 Asesoría</th>
+        <td mat-cell *matCellDef="let element">{{ element.asesoria.nombreAsesoria }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="c6">
+        <th mat-header-cell *matHeaderCellDef>📎 Formato</th>
+        <td mat-cell *matCellDef="let element">{{ element.formatoArchivo.formatoArchivo }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="c7">
+        <th mat-header-cell *matHeaderCellDef>🔄 Actualizar</th>
+        <td mat-cell *matCellDef="let element">
+          <button matButton [routerLink]="['ediciones',element.id]">
+            <mat-icon>update</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="c8">
+        <th mat-header-cell *matHeaderCellDef>🗑️ Eliminar</th>
+        <td mat-cell *matCellDef="let element">
+          <button matButton (click)="eliminar(element.id)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+
+    <mat-paginator [length]="50"
+                   [pageSize]="5"
+                   [pageSizeOptions]="[5, 10, 25, 50]"
+                   aria-label="Seleccionar pagina">
+    </mat-paginator>
+  </div>
+</div>
+ 

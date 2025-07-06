@@ -1,0 +1,194 @@
+/* Variables CSS para una fácil personalización - Integradas para la aplicación */
+:root {
+  --primary-color: #234A6F; /* Pretty Twilight Night - Azul oscuro para elementos principales como el título */
+  --primary-color-rgb: 35, 74, 111; /* Added for rgba usage */
+  --secondary-color: #ADD8E6; /* Light Blue - Azul claro para burbujas de IA, o para accentos */
+  --user-bubble-bg: #98FB98; /* Toxic Frog - Verde menta */
+  --text-color: #333333; /* Gris oscuro para la mayoría del texto */
+  --border-color: #dddddd; /* Gris claro para bordes */
+  --background-page: #F5F5DC; /* Beige - Fondo muy claro de la página */
+  --background-container: #ffffff; /* Fondo blanco para contenedores */
+  --button-background-user: #ADD8E6;
+  --button-background-advanced: #B33939;
+  --button-background-send: #98FB98;
+  --button-background-accept: #FFFACD;
+  --button-background-cancel: #E6E6FA;
+  --border-radius-main: 15px;
+  --border-radius-bubble: 18px;
+  --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-page); /* Fondo general de la página */
+  font-family: 'Rubik', Roboto, "Helvetica Neue", sans-serif; /* Usar Rubik como primary font */
+  color: var(--text-color);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Alinea al inicio para que el contenido no esté en el centro vertical */
+  min-height: 100vh;
+  padding: 20px; /* Añadir padding al body para espacio alrededor del contenedor */
+  box-sizing: border-box; /* Incluir padding en el cálculo del tamaño */
+}
+
+.main-container {
+  background-color: var(--background-container);
+  border-radius: var(--border-radius-main);
+  box-shadow: var(--shadow-light);
+  width: 95%;
+  max-width: 1500px; /* Max width para la tabla */
+  padding: 30px;
+  margin: 20px auto; /* Centrar y dar margen */
+  box-sizing: border-box;
+}
+
+h1 {
+  background-color: var(--primary-color);
+  color: white; /* Texto blanco para el título */
+  padding: 15px 20px;
+  margin: -30px -30px 30px -30px; /* Extender el fondo del título */
+  font-size: 2em; /* Heading 2 de la guía de estilo (36px, ajustado para em) */
+  font-weight: bold; /* Bold de la guía de estilo */
+  text-align: center;
+  border-top-left-radius: var(--border-radius-main);
+  border-top-right-radius: var(--border-radius-main);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+  letter-spacing: 0px; /* Espaciado de letras de la guía de estilo */
+  line-height: 1.4; /* Altura de línea de la guía de estilo */
+}
+
+/* New style for the table container */
+.table-container {
+  width: 100%;
+  overflow-x: auto; /* Enables horizontal scrolling if table content overflows */
+  margin-top: 20px;
+  /* text-align: center; Removed as it might affect table alignment */
+}
+
+
+/* Estilos para la tabla de Material */
+.mat-elevation-z8 {
+  width: 100%;
+  border-radius: var(--border-radius-main); /* Bordes redondeados para la tabla */
+  overflow: hidden; /* Asegura que los bordes redondeados se apliquen correctamente */
+  box-shadow: var(--shadow-light); /* Sombra para la tabla */
+}
+
+.mat-table {
+  background-color: var(--background-container); /* Fondo de la tabla */
+  border-collapse: separate; /* Important for border-radius on cells */
+  border-spacing: 0; /* Important for border-radius on cells */
+}
+
+.mat-header-cell {
+  background-color: var(--primary-color); /* Fondo del encabezado */
+  color: white; /* Color del texto del encabezado */
+  font-weight: bold;
+  font-size: 1.1em;
+  padding: 15px;
+  text-align: center;
+  /* Apply border-radius to the first and last header cells */
+  &:first-of-type {
+    border-top-left-radius: var(--border-radius-main);
+  }
+  &:last-of-type {
+    border-top-right-radius: var(--border-radius-main);
+  }
+}
+
+.mat-cell {
+  color: var(--text-color); /* Color del texto de las celdas */
+  padding: 12px 15px;
+  border-bottom: 1px solid var(--border-color); /* Borde inferior para las celdas */
+  text-align: center;
+  vertical-align: middle; /* Ensure content is vertically centered */
+  box-sizing: border-box; /* Include padding in element's total width/height */
+  overflow: hidden; /* Ensure content within cell is clipped if it overflows */
+  position: relative; /* Needed for z-index to work correctly */
+  z-index: 1; /* Ensure cell content is above table background */
+
+  /* Apply border-radius to the first and last cells in the last row */
+  .mat-row:last-of-type &:first-of-type {
+    border-bottom-left-radius: var(--border-radius-main);
+  }
+  .mat-row:last-of-type &:last-of-type {
+    border-bottom-right-radius: var(--border-radius-main);
+  }
+}
+
+/* Estilos para los botones de acción dentro de las celdas */
+.mat-cell button.mat-icon-button {
+  margin: 0; /* Remove any default margin that might push it out */
+  padding: 6px; /* Adjust padding for the icon button itself */
+  min-width: unset; /* Remove any min-width that might cause overflow */
+  width: 36px; /* Fixed size for consistency */
+  height: 36px;
+  line-height: 36px;
+  display: inline-flex; /* Use inline-flex for better centering of icon */
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%; /* Make them perfectly round */
+  color: var(--primary-color); /* Color the icons with primary color */
+  box-shadow: none; /* Explicitly remove any potential default box-shadow */
+  outline: none; /* Remove outline on focus */
+  flex-shrink: 0; /* Prevent button from shrinking */
+}
+
+.mat-cell button.mat-icon-button:hover {
+  background-color: rgba(var(--primary-color-rgb), 0.1); /* Light hover effect using primary color */
+}
+
+
+/* Estilos para el paginador */
+.mat-paginator {
+  background-color: var(--background-container); /* Fondo del paginador */
+  color: var(--text-color);
+  border-bottom-left-radius: var(--border-radius-main);
+  border-bottom-right-radius: var(--border-radius-main);
+  padding: 15px;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.05); /* Sombra sutil en la parte superior del paginador */
+}
+
+/* Responsividad básica */
+@media (max-width: 768px) {
+  .main-container {
+    width: 100%;
+    border-radius: 0;
+    box-shadow: none;
+    padding: 15px;
+  }
+
+  h1 {
+    border-radius: 0;
+    margin: -15px -15px 20px -15px;
+    font-size: 1.3em;
+  }
+
+  .mat-table {
+    display: block;
+    width: 100%;
+  }
+
+  .mat-header-row {
+    display: none; /* Ocultar el encabezado en pantallas pequeñas */
+  }
+
+  .mat-row {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius-bubble);
+  }
+
+  .mat-cell:before {
+    content: attr(data-label); /* Mostrar el nombre de la columna como etiqueta */
+    font-weight: bold;
+    margin-right: 10px;
+    display: inline-block;
+    min-width: 80px;
+    color: var(--primary-color);
+  }
+}

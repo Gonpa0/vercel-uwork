@@ -1,0 +1,27 @@
+<div *ngIf="cargando" class="spinner-container">
+  <div class="spinner"></div>
+  <p>Cargando perfil...</p>
+</div>
+
+<div class="perfil-container fade-in" *ngIf="!cargando && usuario">
+  <h2>Mi Perfil</h2>
+  <div class="perfil-card">
+    <div class="perfil-avatar">
+      <mat-icon>account_circle</mat-icon>
+    </div>
+    <div class="perfil-info">
+      <p><strong>Nombre de usuario:</strong> {{ usuario.username }}</p>
+      <p><strong>Correo:</strong> {{ usuario.correo }}</p>
+      <p><strong>Carrera:</strong> {{ usuario.carrera }}</p>
+      <p><strong>Ciclo:</strong> {{ usuario.ciclo }}</p>
+      <p><strong>Puntos:</strong> {{ usuario.puntos }}</p>
+      <p><strong>Centro de estudios:</strong> {{ usuario.centro_de_estudios }}</p>
+      <p><strong>Rol:</strong> {{ usuario.rol.nombreRol }}</p>
+      <p><strong>Estado:</strong>
+        <span [ngClass]="usuario.estado ? 'activo' : 'inactivo'">
+          {{ usuario.estado ? 'Activo' : 'Inactivo' }}
+        </span>
+      </p>
+    </div>
+  </div>
+</div>

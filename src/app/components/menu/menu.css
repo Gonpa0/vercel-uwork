@@ -1,0 +1,53 @@
+.custom-toolbar {
+ background-color: rgb(255, 255, 255);
+}
+
+.btn-rojo {
+ background-color: rgb(255, 255, 255);
+ border-radius: 4px;
+ margin: 4px;
+ border: none;
+}
+
+.btn-rojo mat-icon {
+ color: rgb(255, 255, 255);
+}
+
+.custom-toolbar button,
+.custom-toolbar mat-icon {
+ color: rgb(3, 3, 3);
+}
+
+.spacer {
+  flex: 1 1 auto;
+}
+
+.logout-button {
+  background-color: #3f51b5;
+  color: rgb(10, 10, 10);
+  font-weight: 600;
+  padding: 8px 20px;
+  border-radius: 25px;
+  box-shadow: 0 4px 10px #3f51b5;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+}
+
+.logout-button:hover {
+  background-color: #3f51b5;
+  box-shadow: 0 6px 14px #3f51b5;
+  transform: translateY(-2px);
+}
+
+.logo-contanier {
+  height: 40px; /* Ajusta esta altura según la altura de tu barra de navegación */
+  display: flex;
+  align-items: center;
+}
+
+/* Estilo para la imagen del logo */
+.logo-contanier img {
+  height: 100%;       /* La imagen ocupa toda la altura del contenedor */
+  width: auto;        /* El ancho se ajusta para no deformar la imagen */
+  display: block;
+}

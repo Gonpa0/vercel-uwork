@@ -1,0 +1,68 @@
+<div class="container">
+  <div style="text-align: center;margin:5%"><h1>🤝 Mis Asesorías</h1></div>
+  <div style="text-align: center;margin:5%">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <ng-container matColumnDef="c1">
+        <th mat-header-cell *matHeaderCellDef>🆔 ID</th>
+        <td mat-cell *matCellDef="let element">{{ element.idAsesoria }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="c2">
+        <th mat-header-cell *matHeaderCellDef>📘 Nombre de Asesoría</th>
+        <td mat-cell *matCellDef="let element">{{ element.nombreAsesoria }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="c3">
+        <th mat-header-cell *matHeaderCellDef>📅 Fecha de Asesoría</th>
+        <td mat-cell *matCellDef="let element">{{element.fechaAsesoria}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="c4">
+        <th mat-header-cell *matHeaderCellDef>👶 Usuario Inferior</th>
+        <td mat-cell *matCellDef="let element">{{element.usuarioInferior.username}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="c5">
+        <th mat-header-cell *matHeaderCellDef>🎓 Usuario Superior</th>
+        <td mat-cell *matCellDef="let element">{{element.usuarioSuperior.username}}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="c6">
+        <th mat-header-cell *matHeaderCellDef>💬 Ir al Chat</th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-icon-button [routerLink]="['chat', element.idAsesoria, element.nombreAsesoria]">
+            <mat-icon>chat</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <ng-container *ngIf="isLoggedIn" matColumnDef="c7">
+        <th mat-header-cell *matHeaderCellDef>🔄 Actualizar</th>
+        <td mat-cell *matCellDef="let element">
+          <button matButton [routerLink]="['ediciones',element.idAsesoria]">
+            <mat-icon>update</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="c8">
+        <th mat-header-cell *matHeaderCellDef>❌ Cancelar</th>
+        <td mat-cell *matCellDef="let element">
+          <button matButton (click)="eliminar(element.idAsesoria)">
+            <mat-icon>cancel_presentation</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <mat-paginator [length]="50"
+                   [pageSize]="5"
+                   [pageSizeOptions]="[5, 10, 25, 50]"
+                   aria-label="Seleccionar pagina">
+    </mat-paginator>
+  </div>
+</div>

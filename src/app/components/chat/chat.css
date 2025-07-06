@@ -1,0 +1,194 @@
+:root {
+  --primary-color: #234A6F;
+  --secondary-color: #ADD8E6;
+  --user-bubble-bg: #98FB98;
+  --text-color: #333333;
+  --border-color: #dddddd;
+  --background-page: #F5F5DC;
+  --background-container: #ffffff;
+  --button-background-user: #ADD8E6;
+  --button-background-advanced: #B33939;
+  --button-background-send: #98FB98;
+  --button-background-accept: #FFFACD;
+  --button-background-cancel: #E6E6FA;
+  --border-radius-main: 15px;
+  --border-radius-bubble: 18px;
+  --font-family: 'Segoe UI', 'Roboto', sans-serif;
+  --shadow-light: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+body {
+  font-family: var(--font-family);
+  margin: 0;
+  padding: 0;
+  background-color: var(--background-page);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: var(--text-color);
+}
+
+.chat-container {
+  background-color: var(--background-container);
+  border-radius: var(--border-radius-main);
+  box-shadow: var(--shadow-light);
+  width: 90%;
+  max-width: 650px;
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  margin: 20px auto;
+}
+
+h1 {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 15px 20px;
+  margin: 0;
+  font-size: 1.5em;
+  text-align: center;
+  border-top-left-radius: var(--border-radius-main);
+  border-top-right-radius: var(--border-radius-main);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+}
+
+h1::before {
+  content: '🤖 ';
+  margin-right: 8px;
+}
+
+.messages-area {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.message-bubble {
+  padding: 12px 18px;
+  border-radius: var(--border-radius-bubble);
+  max-width: 80%;
+  word-wrap: break-word;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+  line-height: 1.4;
+  color: var(--text-color);
+}
+
+.user-message {
+  align-self: flex-end;
+  background-color: var(--user-bubble-bg);
+  border-bottom-right-radius: 5px;
+}
+
+.gemini-response {
+  align-self: flex-start;
+  background-color: var(--secondary-color);
+  border-bottom-left-radius: 5px;
+}
+
+.input-area {
+  display: flex;
+  flex-direction: column;
+  padding: 15px 20px;
+  border-top: 1px solid var(--border-color);
+  background-color: var(--background-container);
+  gap: 10px;
+  align-items: stretch;
+}
+
+.input-area textarea {
+  width: 100%;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 10px;
+  font-size: 1em;
+  resize: vertical;
+  min-height: 50px;
+  max-height: 120px;
+  outline: none;
+  color: var(--text-color);
+  background-color: #f8f9fa;
+}
+
+.input-area input[type="file"] {
+  width: 100%;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  padding: 8px;
+  background-color: #f8f9fa;
+  cursor: pointer;
+  font-size: 0.95em;
+  color: var(--text-color);
+}
+
+.input-area button {
+  background-color: var(--button-background-send);
+  color: #234A6F;
+  border: none;
+  border-radius: 8px;
+  padding: 12px 25px;
+  font-size: 1.05em;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.input-area button:hover {
+  background-color: #7AD97A;
+}
+
+.input-area button:disabled {
+  background-color: #cccccc;
+  color: #666666;
+  cursor: not-allowed;
+  box-shadow: none;
+}
+
+.error-message {
+  color: #d9534f;
+  background-color: #fcebeb;
+  border: 1px solid #ebccd1;
+  padding: 10px;
+  border-radius: 8px;
+  margin: 10px 20px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.loading-indicator {
+  text-align: center;
+  padding: 15px;
+  color: #6c757d;
+  font-style: italic;
+}
+
+.message-bubble {
+  opacity: 0;
+  transform: translateY(10px);
+  animation: fadeInBubble 0.3s forwards ease-out;
+}
+
+@keyframes fadeInBubble {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 768px) {
+  .chat-container {
+    width: 100%;
+    height: 100vh;
+    border-radius: 0;
+    box-shadow: none;
+  }
+
+  h1 {
+    border-radius: 0;
+  }
+}

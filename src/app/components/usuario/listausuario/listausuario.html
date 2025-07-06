@@ -1,0 +1,77 @@
+<div class="main-container">
+  <h1>Información de Usuarios UWORK4</h1>
+  <div class="table-wrapper">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <!-- Columna Usuario -->
+      <ng-container matColumnDef="c2">
+        <th mat-header-cell *matHeaderCellDef>Usuario</th>
+        <td mat-cell *matCellDef="let element" data-label="Usuario">{{ element.username }}</td>
+      </ng-container>
+
+      <!-- Columna Correo -->
+      <ng-container matColumnDef="c3">
+        <th mat-header-cell *matHeaderCellDef>Correo</th>
+        <td mat-cell *matCellDef="let element" data-label="Correo">{{element.correo}}</td>
+      </ng-container>
+
+      <!-- Columna Ciclo -->
+      <ng-container matColumnDef="c4">
+        <th mat-header-cell *matHeaderCellDef>Ciclo</th>
+        <td mat-cell *matCellDef="let element" data-label="Ciclo">{{element.ciclo}}</td>
+      </ng-container>
+
+      <!-- Columna Puntos -->
+      <ng-container matColumnDef="c5">
+        <th mat-header-cell *matHeaderCellDef>Puntos</th>
+        <td mat-cell *matCellDef="let element" data-label="Puntos">{{element.puntos}}</td>
+      </ng-container>
+
+      <!-- Columna Carrera -->
+      <ng-container matColumnDef="c6">
+        <th mat-header-cell *matHeaderCellDef>Carrera</th>
+        <td mat-cell *matCellDef="let element" data-label="Carrera">{{element.carrera}}</td>
+      </ng-container>
+
+      <!-- Columna Universidad -->
+      <ng-container matColumnDef="c7">
+        <th mat-header-cell *matHeaderCellDef>Universidad</th>
+        <td mat-cell *matCellDef="let element" data-label="Universidad">{{element.centro_de_estudios}}</td>
+      </ng-container>
+
+      <!-- Columna Rol -->
+      <ng-container matColumnDef="c8">
+        <th mat-header-cell *matHeaderCellDef>Rol</th>
+        <td mat-cell *matCellDef="let element" data-label="Rol">{{element.rol.nombreRol}}</td>
+      </ng-container>
+
+      <!-- Columna Actualizar -->
+      <ng-container matColumnDef="c11">
+        <th mat-header-cell *matHeaderCellDef>Actualizar</th>
+        <td mat-cell *matCellDef="let element" data-label="Actualizar">
+          <button mat-icon-button [routerLink]="['ediciones',element.idUsuario]">
+            <mat-icon>update</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <!-- Columna Eliminar -->
+      <ng-container matColumnDef="c12">
+        <th mat-header-cell *matHeaderCellDef>Eliminar</th>
+        <td mat-cell *matCellDef="let element" data-label="Eliminar">
+          <button mat-icon-button (click)="eliminar(element.idUsuario)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="['c2', 'c3', 'c4', 'c5', 'c6', 'c7', 'c8', 'c11', 'c12']"></tr>
+      <tr mat-row *matRowDef="let row; columns: ['c2', 'c3', 'c4', 'c5', 'c6', 'c7', 'c8', 'c11', 'c12'];"></tr>
+    </table>
+    <mat-paginator [length]="50"
+                   [pageSize]="5"
+                   [pageSizeOptions]="[5, 10, 25, 50]"
+                   aria-label="Seleccionar pagina">
+    </mat-paginator>
+  </div>
+</div>

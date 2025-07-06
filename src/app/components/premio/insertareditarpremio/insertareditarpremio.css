@@ -1,0 +1,81 @@
+/* Contenedor principal */
+.container {
+  max-width: 700px;
+  margin: 3rem auto;
+  padding: 2.5rem;
+  background: linear-gradient(135deg, #eaf6ff, #ffffff);
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+  font-family: 'Poppins', sans-serif;
+}
+
+/* Título del formulario */
+h1 {
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: #1f2d3d;
+  margin-bottom: 2rem;
+}
+
+/* Campos del formulario */
+mat-form-field {
+  width: 100%;
+  margin-bottom: 1.5rem;
+  display: block;
+}
+
+input[matInput] {
+  font-size: 1rem;
+  padding: 12px;
+  border-radius: 6px;
+  background-color: #fff;
+}
+
+/* Estilo de errores */
+mat-error {
+  font-size: 0.85rem;
+  color: #d32f2f;
+  margin-top: 0.25rem;
+  font-weight: 500;
+}
+
+/* Botón principal */
+button[matButton] {
+  background-color: #0d6efd;
+  color: white;
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1rem;
+  box-shadow: 0 4px 12px rgba(13, 110, 253, 0.2);
+}
+
+button[matButton]:hover {
+  background-color: #084298;
+  transform: scale(1.02);
+}
+
+/* Responsive: celulares y pantallas pequeñas */
+@media screen and (max-width: 600px) {
+  .container {
+    padding: 2rem 1.2rem;
+    margin: 1.5rem;
+  }
+
+  h1 {
+    font-size: 1.8rem;
+  }
+
+  button[matButton] {
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.9rem;
+  }
+}

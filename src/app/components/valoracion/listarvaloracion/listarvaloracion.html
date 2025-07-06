@@ -1,0 +1,66 @@
+<div class="container">
+  <div style="text-align: center; margin:5%">
+    <h1>Lista de Valoraciones</h1>
+  </div>
+
+  <div style="text-align: center; margin:5%">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <!-- ID -->
+      <ng-container matColumnDef="c1">
+        <th mat-header-cell *matHeaderCellDef>🆔 ID</th>
+        <td mat-cell *matCellDef="let element">{{ element.idValoracion }}</td>
+      </ng-container>
+
+      <!-- Calificación -->
+      <ng-container matColumnDef="c2">
+        <th mat-header-cell *matHeaderCellDef>⭐ Calificación</th>
+        <td mat-cell *matCellDef="let element">{{ element.calificacion }}</td>
+      </ng-container>
+
+      <!-- Asesoría -->
+      <ng-container matColumnDef="c3">
+        <th mat-header-cell *matHeaderCellDef>🎓 Asesoría</th>
+        <td mat-cell *matCellDef="let element">{{element.asesoria.nombreAsesoria}}</td>
+      </ng-container>
+
+      <!-- Usuario -->
+      <ng-container matColumnDef="c4">
+        <th mat-header-cell *matHeaderCellDef>👤 Usuario</th>
+        <td mat-cell *matCellDef="let element">{{element.usuario.username}}</td>
+      </ng-container>
+
+      <!-- Actualizar -->
+      <ng-container *ngIf="isLoggedIn" matColumnDef="c5">
+        <th mat-header-cell *matHeaderCellDef>✏️ Actualizar</th>
+        <td mat-cell *matCellDef="let element">
+          <button matButton [routerLink]="['ediciones', element.idValoracion]">
+            <mat-icon>update</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <!-- Eliminar -->
+      <ng-container *ngIf="isLoggedIn" matColumnDef="c6">
+        <th mat-header-cell *matHeaderCellDef>🗑️ Eliminar</th>
+        <td mat-cell *matCellDef="let element">
+          <button matButton (click)="eliminar(element.idValoracion)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <!-- Filas -->
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+
+    <!-- Paginador -->
+    <mat-paginator
+      [length]="50"
+      [pageSize]="5"
+      [pageSizeOptions]="[5, 10, 25, 50]"
+      aria-label="Seleccionar página">
+    </mat-paginator>
+  </div>
+</div>

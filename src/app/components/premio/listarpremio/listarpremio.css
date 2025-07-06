@@ -1,0 +1,106 @@
+.container {
+  padding: 2rem;
+  font-family: 'Poppins', sans-serif;
+  background: #f9fafc;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  max-width: 95%;
+  margin: auto;
+}
+
+/* Heurística 8: diseño limpio y jerarquía visual clara */
+h1 {
+  color: #1f2d3d;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+/* Heurística 4: consistencia visual y estándar material */
+.mat-elevation-z8 {
+  border-radius: 10px;
+  overflow: hidden;
+  background-color: #ffffff;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.06);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* Heurística 7: buena visibilidad de información importante */
+th.mat-header-cell {
+  background-color: #0d6efd;
+  color: white;
+  font-weight: 600;
+  font-size: 1rem;
+  text-align: center;
+  padding: 14px;
+}
+
+/* Heurística 6: facilitar el escaneo visual */
+td.mat-cell {
+  text-align: center;
+  padding: 12px;
+  font-size: 0.95rem;
+  color: #2d3436;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+tr.mat-row:hover {
+  background-color: #e8f0fe;
+  transition: background-color 0.3s ease;
+}
+
+/* Heurística 3 y 5: permitir control con confirmaciones visuales */
+button[matButton] {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  border-radius: 4px;
+  padding: 4px;
+  transition: transform 0.2s ease, background-color 0.3s;
+}
+
+button[matButton]:hover {
+  background-color: rgba(13, 110, 253, 0.15);
+  transform: scale(1.1);
+}
+
+/* Heurística 1: mostrar el estado con íconos */
+mat-icon {
+  color: #0d6efd;
+  font-size: 20px;
+  transition: color 0.3s ease;
+}
+
+button[matButton]:hover mat-icon {
+  color: #084298;
+}
+
+/* Heurística 7 y 9: navegación clara y opciones visibles */
+mat-paginator {
+  margin-top: 1.5rem;
+  background-color: #ffffff;
+  border-radius: 10px;
+  padding: 0.5rem;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.04);
+}
+
+/* Heurística 7: responsive para accesibilidad y eficiencia */
+@media screen and (max-width: 768px) {
+  table {
+    font-size: 0.9rem;
+  }
+
+  th.mat-header-cell,
+  td.mat-cell {
+    padding: 10px 6px;
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+}
