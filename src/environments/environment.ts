@@ -1,6 +1,6 @@
 export const environment={
-  production:true,
-  base:"https://uwork4.azurewebsites.net"
+  production:false,
+  base:"http://localhost:8801"
 }
 //ENLACE CON EL BACKEND PONER LA RUTA Y
 // VERIFICAR EL PUERTO IMPORTANTE

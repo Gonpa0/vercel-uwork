@@ -56,11 +56,10 @@ export const routes: Routes = [
         canActivate: [seguridadGuard],
     data: { roles: ['DESARROLLADOR','ADMIN'] }
        },
-      /*{ path: 'ediciones/:id', component: Insertareditarpremio,
+      { path: 'ediciones/:id', component: Insertareditarpremio,
         canActivate: [seguridadGuard],
-    data: { roles: ['DESARROLLADOR','ADMIN']
+    data: { roles: ['DESARROLLADOR','ADMIN'] }
       }
-      }*/
     ]
   },
 
@@ -70,7 +69,7 @@ export const routes: Routes = [
     component: ArticuloComponent, // ✅ Pública
     children: [
       { path: 'nuevo', component: Insertareditararticulo, canActivate: [seguridadGuard] },
-      /*{ path: 'ediciones/:id', component: Insertareditararticulo, canActivate: [seguridadGuard] },*/
+      { path: 'ediciones/:id', component: Insertareditararticulo, canActivate: [seguridadGuard] },
       { path: 'busquedas', component: Buscar }, // ✅ Pública
       { path: 'articuloporautor', component: BuscarporautorComponent, canActivate: [seguridadGuard] } // Pública
     ]
@@ -82,7 +81,7 @@ export const routes: Routes = [
     component: Usuario,
     children: [
       { path: 'nuevo', component: Insertareditarusuario },
-      /*{ path: 'ediciones/:id', component: Insertareditarusuario},*/
+      { path: 'ediciones/:id', component: Insertareditarusuario },
       { path: 'listarsinpassword', component: Listausariossinpassword }
     ],
     //canActivate: [seguridadGuard],
@@ -95,10 +94,10 @@ export const routes: Routes = [
     component: Rol,
     children: [
       { path: 'nuevo', component: Insertareditarrol},
-      /*{ path: 'ediciones/:id', component: Insertareditarrol }*/
+      { path: 'ediciones/:id', component: Insertareditarrol}
     ],
     canActivate: [seguridadGuard],
-    data: { roles: ['DESARROLLADOR','ADMIN']},
+    data: { roles: ['DESARROLLADOR','ADMIN'] },
   },
 
   // === USUARIO PREMIO ===
@@ -112,11 +111,10 @@ export const routes: Routes = [
          canActivate: [seguridadGuard],
     data: { roles: ['DESARROLLADOR','ADMIN'] }
          },
-      /*{ path: 'ediciones/:id', component: Insertareditarusuariopremio,
+      { path: 'ediciones/:id', component: Insertareditarusuariopremio,
          canActivate: [seguridadGuard],
-    data: { roles: ['DESARROLLADOR','ADMIN']
-     }
-       },*/
+    data: { roles: ['DESARROLLADOR','ADMIN'] }
+       },
     ]
   },
 
@@ -127,7 +125,7 @@ export const routes: Routes = [
     canActivate: [seguridadGuard],
     children: [
       { path: 'nuevo', component: Insertareditarcomentarioarticulo },
-      /*{ path: 'ediciones/:id', component: Insertareditarcomentarioarticulo}*/
+      { path: 'ediciones/:id', component: Insertareditarcomentarioarticulo }
     ]
   },
 
@@ -142,10 +140,10 @@ export const routes: Routes = [
          canActivate: [seguridadGuard],
     data: { roles: ['DESARROLLADOR','ADMIN'] },
       },
-      /*{ path: 'ediciones/:id', component: Insertareditar,
+      { path: 'ediciones/:id', component: Insertareditar,
          canActivate: [seguridadGuard],
     data: { roles: ['DESARROLLADOR','ADMIN'] },
-       }*/
+       }
     ]
   },
 
@@ -160,14 +158,14 @@ export const routes: Routes = [
         canActivate: [seguridadGuard],
     data: { roles: ['DESARROLLADOR','ADMIN'] },
        },
-      /*{ path: 'ediciones/:id', component: Insertareditarasesoria,
+      { path: 'ediciones/:id', component: Insertareditarasesoria,
         canActivate: [seguridadGuard],
     data: { roles: ['DESARROLLADOR','ADMIN'] },
-       },*/
-      /*{ path: 'chat/:id/:nombreAsesoria', component: ChatAsesoria,
+       },
+      { path: 'chat/:id/:nombreAsesoria', component: ChatAsesoria,
         canActivate: [seguridadGuard],
-    data: { roles: ['DESARROLLADOR','ADMIN','ESTUDIANTESUPERIOR','ESTUDIANTEINFERIOR']},
-       }*/
+    data: { roles: ['DESARROLLADOR','ADMIN','ESTUDIANTESUPERIOR','ESTUDIANTEINFERIOR'] },
+       }
     ]
   },
 
@@ -182,10 +180,10 @@ export const routes: Routes = [
          canActivate: [seguridadGuard],
     data: { roles: ['DESARROLLADOR','ADMIN','ESTUDIANTESUPERIOR','ESTUDIANTEINFERIOR'] },
        },
-      /*{ path: 'ediciones/:id', component: Insertareditarvaloracion,
+      { path: 'ediciones/:id', component: Insertareditarvaloracion,
          canActivate: [seguridadGuard],
     data: { roles: ['DESARROLLADOR','ADMIN'] },
-      }*/
+      }
     ]
   },
 
@@ -200,10 +198,10 @@ export const routes: Routes = [
          canActivate: [seguridadGuard],
     data: { roles: ['DESARROLLADOR','ADMIN','ESTUDIANTESUPERIOR','ESTUDIANTEINFERIOR'] },
        },
-      /*{ path: 'ediciones/:id', component: Insertareditarmensaje,
+      { path: 'ediciones/:id', component: Insertareditarmensaje,
          canActivate: [seguridadGuard],
     data: { roles: ['DESARROLLADOR','ADMIN'] },
-       }*/
+       }
     ]
   },
 
@@ -218,10 +216,10 @@ export const routes: Routes = [
         canActivate: [seguridadGuard],
     data: { roles: ['DESARROLLADOR','ADMIN'] },
        },
-      /*{ path: 'ediciones/:id', component: Insertareditarnotificacion,
+      { path: 'ediciones/:id', component: Insertareditarnotificacion,
         canActivate: [seguridadGuard],
     data: { roles: ['DESARROLLADOR','ADMIN'] },
-       }*/
+       }
     ]
   },
 
@@ -239,10 +237,10 @@ export const routes: Routes = [
         canActivate: [seguridadGuard],
     data: { roles: ['DESARROLLADOR','ADMIN','ESTUDIANTESUPERIOR'] },
       },
-      /*{ path: 'ediciones/:id', component: Insertareditardisponibilidad,
+      { path: 'ediciones/:id', component: Insertareditardisponibilidad,
         canActivate: [seguridadGuard],
     data: { roles: ['DESARROLLADOR','ADMIN','ESTUDIANTESUPERIOR'] },
-       }*/
+       }
     ]
   },
 
@@ -257,10 +255,10 @@ export const routes: Routes = [
         canActivate: [seguridadGuard],
     data: { roles: ['DESARROLLADOR','ADMIN'] },
        },
-      /*{ path: 'ediciones/:id', component: Insertareditararchivo,
+      { path: 'ediciones/:id', component: Insertareditararchivo,
         canActivate: [seguridadGuard],
     data: { roles: ['DESARROLLADOR','ADMIN'] },
-       }*/
+       }
     ]
   },
 
