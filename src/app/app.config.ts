@@ -16,32 +16,27 @@ import {
   withInterceptorsFromDi,
   HTTP_INTERCEPTORS
 } from '@angular/common/http';
+import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
 import { JwtModule } from '@auth0/angular-jwt';
 import { JwtInterceptor } from './interceptor/jwt-interceptor';
 
 export function tokenGetter() {
-  if (typeof window === 'undefined') {
-    return null;
-  }
-  const token = window.sessionStorage.getItem('token');
-  return token && token.split('.').length === 3 ? token : null;
+  return sessionStorage.getItem('token');
 }
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideBrowserGlobalErrorListeners(),
-    provideZonelessChangeDetection(),
+    provideZonelessChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
-    provideClientHydration(withEventReplay()),
-    provideHttpClient(withFetch(), withInterceptorsFromDi()),
-    provideCharts(withDefaultRegisterables()),
+    provideClientHydration(),
+    provideHttpClient(withInterceptorsFromDi()),provideAnimationsAsync(), provideCharts(withDefaultRegisterables()),
     importProvidersFrom(
       JwtModule.forRoot({
         config: {
           tokenGetter: tokenGetter,
-          allowedDomains: ['localhost:8801'],
-          disallowedRoutes: ['http://localhost:8801/login/forget'],
+          allowedDomains: ['https://uwork4.azurewebsites.net'],
+          disallowedRoutes: ['https://uwork4.azurewebsites.net/login/forget'],
         },
       })
     ),
@@ -49,6 +44,6 @@ export const appConfig: ApplicationConfig = {
       provide: HTTP_INTERCEPTORS,
       useClass: JwtInterceptor,
       multi: true
-    } // ✅ Interceptor registrado
+    } 
   ]
 };

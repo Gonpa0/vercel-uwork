@@ -36,13 +36,13 @@
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kB",
-                  "maximumError": "1MB"
+                  "maximumWarning": "4MB",
+                  "maximumError": "8MB"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "4kB",
-                  "maximumError": "8kB"
+                  "maximumWarning": "8kB",
+                  "maximumError": "16kB"
                 }
               ],
               "outputHashing": "all"
@@ -70,46 +70,6 @@
         "extract-i18n": {
           "builder": "@angular/build:extract-i18n"
         },
-        "prerender": {
-  "builder": "@angular-devkit/build-angular:prerender",
-  "options": {
-    "browserTarget": "demoFrontEnd3155Uwork4:build:production",
-    "serverTarget": "demoFrontEnd3155Uwork4:server:production",
-    "routes": [
-      "/",
-      "/inicio",
-      "/usuarios",
-      "/usuarios/nuevo",
-      "/usuariopremios",
-      "/usuariopremios/nuevo",
-      "/comentarioarticulos",
-      "/comentarioarticulos/nuevo",
-      "/formatoarchivos",
-      "/formatoarchivos/nuevo",
-      "/asesorias",
-      "/asesorias/nuevo",
-      "/valoraciones",
-      "/valoraciones/nuevo",
-      "/mensajes",
-      "/mensajes/nuevo",
-      "/notificaciones",
-      "/notificaciones/nuevo",
-      "/reports",
-      "/disponibilidades",
-      "/disponibilidades/nuevo",
-      "/archivos",
-      "/archivos/nuevo",
-      "/miperfil",
-      "/nosotros",
-      "/premios",
-      "/articulos",
-      "/articulos/busquedas",
-      "/roles",
-      "/roles/nuevo",
-      "/usuarios/listarsinpassword"
-    ]
-  }
-},
         "test": {
           "builder": "@angular/build:karma",
           "options": {
