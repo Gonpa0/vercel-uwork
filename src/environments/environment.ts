@@ -1,4 +1,4 @@
 export const environment={
-  production:false,
+  production:true,
   base:"https://uwork4.azurewebsites.net"
 }

@@ -8,15 +8,14 @@ import { provideRouter } from '@angular/router';
 import { routes } from './app.routes';
 import {
   provideClientHydration,
-  withEventReplay
+  withEventReplay,
 } from '@angular/platform-browser';
 import {
   provideHttpClient,
-  withFetch,
   withInterceptorsFromDi,
-  HTTP_INTERCEPTORS
+  HTTP_INTERCEPTORS,
+  withFetch
 } from '@angular/common/http';
-import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
 import { JwtModule } from '@auth0/angular-jwt';
 import { JwtInterceptor } from './interceptor/jwt-interceptor';
@@ -27,10 +26,11 @@ export function tokenGetter() {
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideZonelessChangeDetection({ eventCoalescing: true }),
+    provideBrowserGlobalErrorListeners(),
+    provideZonelessChangeDetection(),
     provideRouter(routes),
-    provideClientHydration(),
-    provideHttpClient(withInterceptorsFromDi()),provideAnimationsAsync(), provideCharts(withDefaultRegisterables()),
+    provideClientHydration(withEventReplay()),
+    provideHttpClient(withFetch(),withInterceptorsFromDi()),provideCharts(withDefaultRegisterables()),
     importProvidersFrom(
       JwtModule.forRoot({
         config: {
