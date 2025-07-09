@@ -1,0 +1,75 @@
+<div class="container">
+  <div style="text-align: center; margin:5%">
+    <h1>📚 Lista de Artículos</h1>
+  </div>
+
+  <div style="text-align: center; margin:5%">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8 custom-table">
+
+      <!-- ID -->
+      <ng-container matColumnDef="c1">
+        <th mat-header-cell *matHeaderCellDef>🆔 ID</th>
+        <td mat-cell *matCellDef="let element">{{ element.idArticulo }}</td>
+      </ng-container>
+
+      <!-- Título -->
+      <ng-container matColumnDef="c2">
+        <th mat-header-cell *matHeaderCellDef>📝 Título</th>
+        <td mat-cell *matCellDef="let element">{{ element.titulo }}</td>
+      </ng-container>
+
+      <!-- Contenido -->
+      <ng-container matColumnDef="c3">
+        <th mat-header-cell *matHeaderCellDef>📄 Contenido</th>
+        <td mat-cell *matCellDef="let element">{{ element.contenido }}</td>
+      </ng-container>
+
+      <!-- Fecha -->
+      <ng-container matColumnDef="c4">
+        <th mat-header-cell *matHeaderCellDef>📅 Fecha</th>
+        <td mat-cell *matCellDef="let element">{{ element.fecha }}</td>
+      </ng-container>
+
+      <!-- Autor -->
+      <ng-container matColumnDef="c5">
+        <th mat-header-cell *matHeaderCellDef>👨‍🏫 Autor</th>
+        <td mat-cell *matCellDef="let element">{{ element.autor }}</td>
+      </ng-container>
+
+      <!-- Estudiante -->
+      <ng-container matColumnDef="c6">
+        <th mat-header-cell *matHeaderCellDef>👤 Estudiante</th>
+        <td mat-cell *matCellDef="let element">{{ element.usuario.username }}</td>
+      </ng-container>
+
+      <!-- Actualizar -->
+      <ng-container *ngIf="isLoggedIn" matColumnDef="c7">
+        <th mat-header-cell *matHeaderCellDef>🔄 Actualizar</th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-button *ngIf="isLoggedIn" [routerLink]="['ediciones', element.idArticulo]">
+            <mat-icon>update</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <!-- Eliminar -->
+      <ng-container *ngIf="isLoggedIn" matColumnDef="c8">
+        <th mat-header-cell *matHeaderCellDef>🗑️ Eliminar</th>
+        <td mat-cell *matCellDef="let element">
+          <button mat-button *ngIf="isLoggedIn" (click)="eliminar(element.idArticulo)">
+            <mat-icon>delete</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+
+    <mat-paginator [length]="50"
+                   [pageSize]="5"
+                   [pageSizeOptions]="[5, 10, 25, 50]"
+                   aria-label="Seleccionar página">
+    </mat-paginator>
+  </div>
+</div>

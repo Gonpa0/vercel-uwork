@@ -1,0 +1,126 @@
+/* 🌐 CONTENEDOR GENERAL */
+.container {
+  padding: 40px 20px;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f5f7fb;
+  min-height: 100vh;
+  animation: fadeIn 0.8s ease;
+}
+
+/* ✨ EFECTO DE ENTRADA */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 📝 TÍTULO CENTRAL */
+.container h1 {
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #1f2c5c;
+  margin-bottom: 30px;
+}
+
+.container h1::before {
+  content: '📩 ';
+}
+
+/* 🧩 CAMPOS DE FORMULARIO */
+mat-form-field {
+  width: 40%;
+  margin: 12px auto;
+  display: block;
+  text-align: left;
+}
+
+mat-form-field.mat-form-field {
+  background-color: #fff;
+  border-radius: 8px;
+}
+
+input[matInput],
+mat-select,
+mat-radio-button {
+  font-size: 1rem;
+}
+
+/* 🕑 RADIO GROUP y SELECCIONES */
+mat-radio-group {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  margin: 10px auto;
+}
+
+mat-radio-button {
+  font-size: 1rem;
+  color: #253da1;
+}
+
+mat-radio-button.mat-radio-checked .mat-radio-label-content {
+  font-weight: 600;
+}
+
+/* ⚠️ MENSAJES DE ERROR */
+mat-error {
+  font-size: 0.85rem;
+  color: #d32f2f;
+  margin-top: 4px;
+  display: block;
+  text-align: left;
+  padding-left: 12px;
+}
+
+/* 🕓 CAMPOS DE FECHA Y HORA */
+input[type="time"],
+input[matInput][type="date"] {
+  font-size: 1rem;
+}
+
+/* 🔘 BOTÓN PRINCIPAL */
+button[matButton="filled"] {
+  background-color: rgb(10, 19, 113);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  width: 40%;
+  margin-top: 20px;
+}
+
+button[matButton="filled"]:hover {
+  background-color: #817dce;
+  transform: scale(1.04);
+}
+
+/* 📱 RESPONSIVO */
+@media (max-width: 768px) {
+  mat-form-field {
+    width: 90%;
+  }
+
+  button[matButton="filled"] {
+    width: 90%;
+    font-size: 1rem;
+  }
+
+  .container h1 {
+    font-size: 1.6rem;
+  }
+
+  mat-radio-group {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+}

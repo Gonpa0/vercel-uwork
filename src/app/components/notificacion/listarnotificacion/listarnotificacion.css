@@ -1,0 +1,181 @@
+/* 🌐 CONTENEDOR GENERAL */
+.container {
+  padding: 40px 20px;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f5f7fb;
+  min-height: 100vh;
+  animation: fadeIn 0.8s ease;
+}
+
+/* ✨ EFECTO DE ENTRADA */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 📝 TÍTULO CENTRAL */
+.container h1 {
+  font-size: 2.3rem;
+  font-weight: 700;
+  color: #1f2c5c;
+  margin-bottom: 20px;
+}
+
+.container h1::before {
+  content: '🔔 ';
+}
+
+/* 📊 TABLA ESTILO */
+.custom-table {
+  width: 94%;
+  margin: 0 auto 30px auto;
+  background-color: #ffffff;
+  border: 1px solid #dee2e6;
+  border-radius: 12px;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  transition: box-shadow 0.3s ease-in-out;
+}
+
+.custom-table:hover {
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+}
+
+/* 🔠 CABECERA */
+.mat-header-row {
+  background-color: #253da1;
+  color: #ffffff;
+}
+
+.mat-header-cell {
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 16px;
+  text-align: center;
+  border-right: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+/* 📄 FILAS */
+.mat-row {
+  background-color: #fefefe;
+  transition: background-color 0.3s ease;
+}
+
+.mat-row:hover {
+  background-color: #eef2ff;
+}
+
+.mat-cell {
+  padding: 14px;
+  font-size: 0.95rem;
+  text-align: center;
+  color: #333;
+  border-right: 1px solid #f0f0f0;
+}
+
+/* 🛠️ BOTONES DE ACCIÓN */
+button[matButton] {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+button[matButton]:hover {
+  background-color: #dce2ff;
+  transform: scale(1.05);
+}
+
+mat-icon {
+  font-size: 20px;
+  color: #253da1;
+}
+
+button[matButton]:hover mat-icon {
+  color: #0d1d7a;
+}
+
+/* 📎 PAGINADOR */
+.mat-paginator {
+  margin-top: 25px;
+  background-color: #f9f9fb;
+  border-radius: 8px;
+  padding: 10px 20px;
+  border: 1px solid #e1e4ec;
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.03);
+}
+
+/* 🌙 MODO OSCURO */
+body.dark-mode {
+  background-color: #101122;
+}
+
+body.dark-mode .container {
+  background-color: #121528;
+}
+
+body.dark-mode .custom-table {
+  background-color: #1e1f36;
+  color: #e2e2ff;
+  border: 1px solid rgba(180, 180, 255, 0.1);
+}
+
+body.dark-mode .mat-header-row {
+  background-color: #20206b;
+}
+
+body.dark-mode .mat-header-cell,
+body.dark-mode .mat-cell {
+  color: #ddddff;
+  border-color: rgba(100, 100, 160, 0.15);
+}
+
+body.dark-mode .mat-row {
+  background-color: #23244a;
+}
+
+body.dark-mode .mat-row:hover {
+  background-color: #2f3160;
+}
+
+body.dark-mode .mat-paginator {
+  background-color: #1a1b36;
+  border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* 📱 RESPONSIVO */
+@media (max-width: 768px) {
+  .mat-header-cell,
+  .mat-cell {
+    font-size: 0.85rem;
+    padding: 10px 6px;
+  }
+
+  .container h1 {
+    font-size: 1.7rem;
+  }
+
+  .custom-table {
+    width: 100%;
+  }
+
+  button[matButton] {
+    padding: 4px 8px;
+  }
+
+  .mat-header-cell {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    text-align: center;
+  }
+}

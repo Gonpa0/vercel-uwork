@@ -1,0 +1,67 @@
+/* ===== CONTENEDOR GENERAL ===== */
+.container {
+  padding: 40px 20px;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f5f7fb;
+  min-height: 100vh;
+}
+
+/* ===== TÍTULO ===== */
+.container h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #1f2c5c;
+  margin-bottom: 20px;
+}
+
+/* ===== FORMULARIO ===== */
+mat-form-field {
+  width: 40%;
+  font-family: 'Poppins', sans-serif;
+  margin-bottom: 1.5rem;
+}
+
+/* ===== MENSAJES Y FEEDBACK ===== */
+mat-error {
+  font-size: 0.85rem;
+  font-weight: 500;
+  color: #d32f2f;
+  margin-top: 4px;
+}
+
+mat-hint {
+  font-size: 0.8rem;
+  color: #6c757d;
+}
+
+/* ===== BOTÓN DE REGISTRO ===== */
+button[matButton="filled"] {
+  background-color: #1f2c5c;
+  color: #ffffff;
+  border: none;
+  padding: 0.6rem 1.5rem;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 40%;
+  transition: background-color 0.25s ease, transform 0.15s ease;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+}
+
+button[matButton="filled"]:hover {
+  background-color: #2f3e9e;
+  transform: scale(1.03);
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 768px) {
+  mat-form-field,
+  button[matButton="filled"] {
+    width: 90%;
+  }
+
+  .container h1 {
+    font-size: 1.8rem;
+  }
+}

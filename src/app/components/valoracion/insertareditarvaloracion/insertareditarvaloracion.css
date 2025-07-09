@@ -1,0 +1,67 @@
+/* 🌐 CONTENEDOR GENERAL */
+.container {
+  padding: 40px 20px;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f5f7fb;
+  min-height: 100vh;
+}
+
+/* 📝 TÍTULO */
+.container h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #1f2c5c;
+  margin-bottom: 20px;
+}
+
+/* 🧾 CAMPOS DE FORMULARIO */
+mat-form-field {
+  width: 40%;
+  min-width: 260px;
+  margin: 16px auto;
+  display: block;
+}
+
+/* 🔘 BOTÓN DE REGISTRO */
+button[matButton="filled"] {
+  background-color: rgb(10, 19, 113);
+  color: white;
+  border: none;
+  padding: 0.6rem 1.5rem;
+  font-size: 1.1rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  width: 40%;
+  min-width: 200px;
+  margin-top: 20px;
+}
+
+button[matButton="filled"]:hover {
+  background-color: #6172d6;
+  transform: scale(1.03);
+}
+
+/* ⚠️ MENSAJES DE ERROR */
+mat-error {
+  font-size: 0.85rem;
+  color: #d32f2f;
+  font-weight: 500;
+  padding-left: 6px;
+}
+
+/* 📱 RESPONSIVO */
+@media (max-width: 768px) {
+  mat-form-field {
+    width: 90%;
+  }
+
+  button[matButton="filled"] {
+    width: 90%;
+    font-size: 1rem;
+  }
+
+  .container h1 {
+    font-size: 1.8rem;
+  }
+}

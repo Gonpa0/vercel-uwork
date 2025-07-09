@@ -1,0 +1,44 @@
+/* Estilo general para router outlet */
+router-outlet {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+/* Estilo principal del componente cuando se muestra */
+app-reportepromedionotificacion {
+  display: block;
+  background-color: #ffffff;
+  padding: 2.5rem;
+  margin: 2rem auto;
+  border-radius: 16px;
+  max-width: 95%;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+  font-family: 'Poppins', sans-serif;
+  transition: all 0.3s ease-in-out;
+}
+
+/* Animación al mostrarse */
+app-reportepromedionotificacion {
+  animation: slideFade 0.5s ease-in-out;
+}
+
+@keyframes slideFade {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive: para pantallas pequeñas */
+@media screen and (max-width: 768px) {
+  app-reportepromedionotificacion {
+    padding: 1.2rem;
+    margin: 1rem;
+    box-shadow: 0 4px 14px rgba(0, 0, 0, 0.05);
+  }
+}

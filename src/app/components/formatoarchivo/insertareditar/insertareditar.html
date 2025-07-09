@@ -1,0 +1,42 @@
+<div class="container">
+  <div style="text-align: center; margin:5%">
+    <h1>📝 Registro de Formato Archivo</h1>
+  </div>
+
+  <div style="text-align: center; margin:5%">
+    <form [formGroup]="form" (submit)="aceptar()">
+
+      <mat-form-field *ngIf="edicion">
+        <mat-label>🆔 ID</mat-label>
+        <input matInput formControlName="codigo" />
+        <mat-error *ngIf="form.get('codigo')?.hasError('required')">
+          El código es obligatorio para actualizar!!
+        </mat-error>
+      </mat-form-field>
+
+      <br>
+
+      <mat-form-field>
+        <mat-label>📂 Formato del Archivo</mat-label>
+        <input matInput formControlName="formatodelarchivo" />
+        <mat-error *ngIf="form.get('formatodelarchivo')?.hasError('required')">
+          El formato es obligatorio!!
+        </mat-error>
+      </mat-form-field>
+
+      <br>
+
+      <mat-form-field>
+        <mat-label>🔤 Extensión del Archivo</mat-label>
+        <input matInput formControlName="extensionarchivo" />
+        <mat-error *ngIf="form.get('extensionarchivo')?.hasError('required')">
+          La extensión es obligatoria!!
+        </mat-error>
+      </mat-form-field>
+
+      <br>
+
+      <button matButton="filled">Registrar</button>
+    </form>
+  </div>
+</div>

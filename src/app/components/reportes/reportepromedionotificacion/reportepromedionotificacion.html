@@ -1,0 +1,31 @@
+<!-- Contenedor general con estilos -->
+<div class="title-container">
+
+  <!-- Título centrado -->
+  <div class="title" style="text-align: center; margin-bottom:16px;">
+    <h1>Promedio de Notificaciones por Ciclo Inferior o Superior</h1>
+  </div>
+
+  <!-- Contenedor del gráfico, centrado horizontalmente -->
+  <div class="chart-container" style="display: flex; justify-content: center;">
+    <canvas
+      baseChart
+      [datasets]="pieChartDatasets"
+      [labels]="pieChartLabels"
+      [options]="pieChartOptions"
+      [legend]="pieChartLegend"
+      [type]="pieChartType"
+    >
+
+    <!-- Lienzo del gráfico
+    <canvas
+      baseChart
+      [datasets]="pieChartDatasets"      datos que se muestran
+      [labels]="pieChartLabels"          nombres de las secciones
+      [options]="pieChartOptions"        opciones como responsive o leyenda
+      [legend]="pieChartLegend"          mostrar la leyenda
+      [type]="pieChartType"              tipo de gráfico: pie-->
+    </canvas>
+
+  </div>
+</div>

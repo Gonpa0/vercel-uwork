@@ -1,0 +1,142 @@
+/* ===== CONTENEDOR GENERAL DEL CHAT ===== */
+.chat-container {
+  padding: 30px 20px;
+  font-family: 'Poppins', sans-serif;
+  background-color: #f5f7fb;
+  min-height: 100vh;
+}
+
+.chat-container h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: #1f2c5c;
+  margin-bottom: 10px;
+}
+
+/* ===== MENSAJES ===== */
+.mensajes {
+  max-height: 350px;
+  overflow-y: auto;
+  padding: 15px;
+  background-color: #ffffff;
+  border-radius: 12px;
+  border: 1px solid #dfe4f0;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.04);
+  margin-bottom: 25px;
+}
+
+.mensaje {
+  margin-bottom: 16px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  background-color: #eef2ff;
+  color: #1e1e2f;
+  word-break: break-word;
+}
+
+.mensaje strong {
+  color: #253da1;
+}
+
+.fecha {
+  font-size: 0.75rem;
+  color: #666;
+  margin-top: 4px;
+}
+
+/* ===== ARCHIVOS COMPARTIDOS ===== */
+.archivos-chat {
+  background-color: #ffffff;
+  padding: 16px;
+  border-radius: 10px;
+  border: 1px solid #dee2e6;
+  margin-bottom: 25px;
+}
+
+.archivos-chat h3 {
+  color: #1f2c5c;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.archivos-chat ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.archivos-chat li {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+  color: #333;
+}
+
+/* ===== NUEVO MENSAJE ===== */
+.nuevo-mensaje {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.nuevo-mensaje input {
+  flex: 1;
+  padding: 10px 14px;
+  border: 1px solid #cfd8e3;
+  border-radius: 8px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.95rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.nuevo-mensaje input:focus {
+  border-color: #253da1;
+}
+
+.nuevo-mensaje button {
+  font-family: 'Poppins', sans-serif;
+}
+
+/* ===== SUBIDA DE ARCHIVOS ===== */
+.archivos {
+  margin-top: 30px;
+  background-color: #ffffff;
+  padding: 16px;
+  border-radius: 10px;
+  border: 1px solid #dee2e6;
+}
+
+.archivos h3 {
+  color: #1f2c5c;
+  margin-bottom: 10px;
+  font-size: 1.1rem;
+}
+
+.archivos input[type="file"] {
+  margin-bottom: 10px;
+  font-family: 'Poppins', sans-serif;
+  font-size: 0.9rem;
+}
+
+/* ===== RESPONSIVO ===== */
+@media (max-width: 768px) {
+  .chat-container h2 {
+    font-size: 1.3rem;
+  }
+
+  .nuevo-mensaje {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .nuevo-mensaje input {
+    width: 100%;
+  }
+
+  .nuevo-mensaje button {
+    width: 100%;
+  }
+}

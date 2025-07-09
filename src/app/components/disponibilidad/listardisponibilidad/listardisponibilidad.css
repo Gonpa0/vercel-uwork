@@ -1,0 +1,64 @@
+.custom-table {
+  width: 95%;
+  margin: 30px auto;
+  border-radius: 16px;
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(200, 200, 255, 0.3);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: all 0.4s ease;
+}
+
+.mat-header-row {
+  background-color: #364fc7;
+  color: #ffffff;
+}
+
+.mat-header-cell {
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 18px;
+  text-align: center;
+  border-right: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.mat-cell {
+  padding: 16px;
+  font-size: 0.95rem;
+  text-align: center;
+  color: #1e1e2f;
+  border-right: 1px solid #e0e0e0;
+}
+
+button[matButton] {
+  background-color: transparent;
+  border: none;
+  padding: 6px 10px;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+button[matButton]:hover {
+  background-color: rgba(54, 79, 199, 0.1);
+  transform: scale(1.1);
+}
+
+mat-icon {
+  font-size: 20px;
+  color: #364fc7;
+}
+
+button[matButton]:hover mat-icon {
+  color: #1b2a98;
+}
+
+.mat-paginator {
+  margin-top: 30px;
+  background: rgba(250, 250, 255, 0.6);
+  border-radius: 8px;
+  padding: 10px 20px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}

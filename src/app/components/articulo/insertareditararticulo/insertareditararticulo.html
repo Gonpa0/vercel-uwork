@@ -1,0 +1,74 @@
+<div class="container">
+  <div style="text-align: center; margin:5%"><h1>📝 Registro de Artículos</h1></div>
+  <div style="text-align: center; margin:5%">
+    <form [formGroup]="form" (submit)="aceptar()">
+
+      <mat-form-field *ngIf="edicion">
+        <mat-label>🆔 ID</mat-label>
+        <input matInput formControlName="codigo" />
+        <mat-error *ngIf="form.get('codigo')?.hasError('required')">
+          El codigo es obligatorio !!
+        </mat-error>
+      </mat-form-field>
+      <br />
+
+      <mat-form-field>
+        <mat-label>📝 Título</mat-label>
+        <input matInput formControlName="titulo" />
+        <mat-error *ngIf="form.get('titulo')?.hasError('required')">
+          El titulo es obligatorio!!
+        </mat-error>
+      </mat-form-field>
+      <br />
+      <br>
+
+      <mat-form-field>
+        <mat-label>📄 Contenido</mat-label>
+        <input matInput formControlName="contenido" />
+        <mat-error *ngIf="form.get('contenido')?.hasError('required')">
+          El contenido es obligatorio!!
+        </mat-error>
+      </mat-form-field>
+      <br />
+
+      <mat-form-field>
+        <mat-label>📅 Escoge la fecha</mat-label>
+        <input matInput [matDatepicker]="picker" formControlName="fecha">
+        <mat-hint>Mes/Dia/Año<object data="" type=""></object></mat-hint>
+        <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="form.get('fecha')?.hasError('required')">
+          La fecha de publicación es obligatoria!!
+        </mat-error>
+      </mat-form-field>
+      <br />
+      <br>
+
+      <mat-form-field>
+        <mat-label>👨‍🏫 Autor</mat-label>
+        <input matInput formControlName="autor" />
+        <mat-error *ngIf="form.get('autor')?.hasError('required')">
+          El autor es obligatorio!!
+        </mat-error>
+      </mat-form-field>
+      <br>
+      <br>
+
+      <mat-form-field>
+        <mat-label>👤 Estudiantes</mat-label>
+        <mat-select formControlName="usuario">
+          @for (food of listaUsuarios; track food) {
+          <mat-option [value]="food.idUsuario">{{ food.username }}</mat-option>
+          }
+        </mat-select>
+        <mat-error *ngIf="form.get('usuario')?.hasError('required')">
+          El estudiante es obligatorio!!
+        </mat-error>
+      </mat-form-field>
+      <br>
+      <br>
+
+      <button matButton="filled">📥 Registrar</button>
+    </form>
+  </div>
+</div>

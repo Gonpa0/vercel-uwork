@@ -1,0 +1,143 @@
+<div class="main-container">
+  <h1>Registro de Usuarios</h1>
+  <div class="form-wrapper">
+    <form [formGroup]="form" (submit)="aceptar()">
+
+      <mat-form-field *ngIf="edicion" appearance="outline">
+        <mat-label>ID de Usuario</mat-label>
+        <input matInput formControlName="codigo" readonly />
+        <mat-error *ngIf="form.get('codigo')?.hasError('required')">
+          El ID es obligatorio para actualizar.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Nombre de Usuario</mat-label>
+        <input matInput formControlName="username" />
+        <mat-error *ngIf="form.get('username')?.hasError('required')">
+          El nombre de usuario es obligatorio.
+        </mat-error>
+        <!-- CORRECCIÓN AQUÍ: Acceso a 'minlength' con notación de corchetes -->
+        <mat-error *ngIf="form.get('username')?.hasError('minlength')">
+          Mínimo {{ form.get('username')?.errors?.['minlength']?.requiredLength }} caracteres.
+        </mat-error>
+        <!-- CORRECCIÓN AQUÍ: Acceso a 'maxlength' con notación de corchetes -->
+        <mat-error *ngIf="form.get('username')?.hasError('maxlength')">
+          Máximo {{ form.get('username')?.errors?.['maxlength']?.requiredLength }} caracteres.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Correo Electrónico</mat-label>
+        <input matInput formControlName="correo" />
+        <mat-error *ngIf="form.get('correo')?.hasError('required')">
+          El correo es obligatorio.
+        </mat-error>
+        <mat-error *ngIf="form.get('correo')?.hasError('email')">
+          Ingresa un correo válido.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Contraseña</mat-label>
+        <input matInput formControlName="password" type="password" />
+        <mat-error *ngIf="form.get('password')?.hasError('required')">
+          La contraseña es obligatoria.
+        </mat-error>
+        <!-- CORRECCIÓN AQUÍ: Acceso a 'minlength' con notación de corchetes -->
+        <mat-error *ngIf="form.get('password')?.hasError('minlength')">
+          Mínimo {{ form.get('password')?.errors?.['minlength']?.requiredLength }} caracteres.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Ciclo Académico</mat-label>
+        <mat-select formControlName="ciclo">
+          @for (ciclo of listaCiclos; track ciclo) {
+            <mat-option [value]="ciclo">{{ ciclo }}</mat-option>
+          }
+        </mat-select>
+        <mat-error *ngIf="form.get('ciclo')?.hasError('required')">
+          El ciclo es obligatorio.
+        </mat-error>
+        <mat-error *ngIf="form.get('ciclo')?.hasError('min') || form.get('ciclo')?.hasError('max')">
+          El ciclo debe estar entre 1 y 10.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Puntos</mat-label>
+        <input matInput formControlName="puntos" type="number" />
+        <mat-error *ngIf="form.get('puntos')?.hasError('required')">
+          Los puntos son obligatorios.
+        </mat-error>
+        <mat-error *ngIf="form.get('puntos')?.hasError('min')">
+          Los puntos no pueden ser negativos.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Nombre de la Carrera</mat-label>
+        <input matInput formControlName="carrera" />
+        <mat-error *ngIf="form.get('carrera')?.hasError('required')">
+          El nombre de la carrera es obligatorio.
+        </mat-error>
+        <!-- CORRECCIÓN AQUÍ: Acceso a 'minlength' con notación de corchetes -->
+        <mat-error *ngIf="form.get('carrera')?.hasError('minlength')">
+          Mínimo {{ form.get('carrera')?.errors?.['minlength']?.requiredLength }} caracteres.
+        </mat-error>
+        <!-- CORRECCIÓN AQUÍ: Acceso a 'maxlength' con notación de corchetes -->
+        <mat-error *ngIf="form.get('carrera')?.hasError('maxlength')">
+          Máximo {{ form.get('carrera')?.errors?.['maxlength']?.requiredLength }} caracteres.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Universidad</mat-label>
+        <input matInput formControlName="centro_de_estudios" />
+        <mat-error *ngIf="form.get('centro_de_estudios')?.hasError('required')">
+          El nombre de la universidad es obligatorio.
+        </mat-error>
+        <!-- CORRECCIÓN AQUÍ: Acceso a 'minlength' con notación de corchetes -->
+        <mat-error *ngIf="form.get('centro_de_estudios')?.hasError('minlength')">
+          Mínimo {{ form.get('centro_de_estudios')?.errors?.['minlength']?.requiredLength }} caracteres.
+        </mat-error>
+        <!-- CORRECCIÓN AQUÍ: Acceso a 'maxlength' con notación de corchetes -->
+        <mat-error *ngIf="form.get('centro_de_estudios')?.hasError('maxlength')">
+          Máximo {{ form.get('centro_de_estudios')?.errors?.['maxlength']?.requiredLength }} caracteres.
+        </mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline">
+        <mat-label>Rol</mat-label>
+        <mat-select formControlName="rol">
+          @for (rol of listaRoles; track rol.idRol) {
+            <mat-option [value]="rol.idRol">{{ rol.nombreRol }}</mat-option>
+          }
+        </mat-select>
+        <mat-error *ngIf="form.get('rol')?.hasError('required')">
+          El rol es obligatorio.
+        </mat-error>
+      </mat-form-field>
+
+      <div class="radio-group-container">
+        <mat-label>Estado:</mat-label>
+        <mat-radio-group aria-label="Seleccione una opción"
+                        formControlName="estado">
+          <mat-radio-button [value]="true">Activo</mat-radio-button>
+          <mat-radio-button [value]="false">Inactivo</mat-radio-button>
+        </mat-radio-group>
+        <mat-error *ngIf="form.get('estado')?.hasError('required') && form.get('estado')?.touched">
+          El estado es obligatorio.
+        </mat-error>
+      </div>
+
+      <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">
+        {{ edicion ? 'Actualizar' : 'Registrar' }}
+      </button>
+      <button mat-raised-button color="accent" type="button" (click)="cancelar()">
+        Cancelar
+    </button>
+    </form>
+  </div>
+</div>

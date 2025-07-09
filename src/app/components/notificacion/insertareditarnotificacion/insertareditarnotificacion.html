@@ -1,0 +1,85 @@
+<div class="container">
+    <div style="text-align: center; margin:5%"><h1>Registro de Notificaciones</h1></div>
+    <div style="text-align: center; margin:5%">
+    <form [formGroup]="form" (submit)="aceptar()">
+
+        <mat-form-field *ngIf="edicion">
+        <mat-label>ID</mat-label>
+        <input matInput formControlName="codigo" />
+        <mat-error *ngIf="form.get('codigo')?.hasError('required')">
+            El codigo es obligatorio !!
+        </mat-error>
+        </mat-form-field>
+
+
+        <br>
+
+        <mat-form-field>
+        <mat-label>Contenido</mat-label>
+        <input matInput formControlName="contenido" />
+        <mat-error *ngIf="form.get('contenido')?.hasError('required')">
+            El contenido es obligatorio!!
+        </mat-error>
+        </mat-form-field>
+
+        <br>
+        <br>
+
+          <div>
+            <mat-radio-group aria-label="Seleccione una opción"
+            formControlName="estado"
+            [(ngModel)]="valorDefecto">
+                <mat-radio-button [value]="true">Leído</mat-radio-button>
+                <mat-radio-button [value]="false">No Leído</mat-radio-button>
+            </mat-radio-group>
+        </div>
+
+        <br>
+        <br>
+
+       <!-- FECHA -->
+            <mat-form-field>
+              <mat-label>Selecciona la fecha</mat-label>
+              <input matInput [matDatepicker]="picker" formControlName="fecha" required>
+              <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+                <mat-error *ngIf="form.get('fecha')?.hasError('required')">
+              La fecha de notificación es obligatoria!!
+          </mat-error>
+            </mat-form-field>
+
+        <br>
+        <br>
+
+        <!-- HORA -->
+            <mat-form-field>
+              <mat-label>Selecciona la hora</mat-label>
+              <input matInput type="time" formControlName="hora" required>
+                <mat-error *ngIf="form.get('hora')?.hasError('required')">
+              La hora de notificación es obligatoria!!
+          </mat-error>
+            </mat-form-field>
+
+
+        <br>
+        <br>
+
+            <mat-form-field>
+        <mat-label>Estudiantes</mat-label>
+        <mat-select formControlName="nombreusuario">
+            @for (food of listaUsuarios; track food) {
+            <mat-option [value]="food.idUsuario">{{ food.username }}</mat-option>
+        }
+        </mat-select>
+        <mat-error *ngIf="form.get('nombreusuario')?.hasError('required')">
+          El estudiante es obligatorio!!
+        </mat-error>
+        </mat-form-field>
+
+        <br>
+        <br>
+
+        <button matButton="filled">Registrar</button>
+    </form>
+    </div>
+</div>
